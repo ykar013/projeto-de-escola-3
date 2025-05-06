@@ -1,0 +1,106 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #6f00ff, #00c3ff);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.main {
+  flex: 1 1 100%;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-left: 2px solid #fff;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+  text-align: left;
+  display: block;
+}
+
+.player {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px auto;
+  display: inline-block;
+  width: 80%;
+}
+
+.question {
+  font-size: 1.5em;
+  margin: 20px 0;
+}
+
+button {
+  margin: 5px;
+  padding: 15px 30px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #333;
+  transition: transform 0.1s;
+  font-size: 1.1em;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.score {
+  font-weight: bold;
+}
+
+/* Adaptação para telas menores */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none; /* Oculta a tabela lateral em telas menores */
+  }
+
+  .player {
+    width: 90%;
+  }
+
+  .question {
+    font-size: 1.3em;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .question {
+    font-size: 1.1em;
+  }
+
+  button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}
+
+
