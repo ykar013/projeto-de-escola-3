@@ -1,11 +1,11 @@
 const boardSize = 30;
-const playerCount = 4;
-const positions = [0, 0, 0, 0];
+const playerCount = 6;
+const positions = Array(playerCount).fill(0);
 let currentPlayer = 0;
 
 const questions = [
   {
-    q: "Qual desses é um carboidrato simples?",
+    q: "Qual destes é um carboidrato simples?",
     options: ["Glicose", "Celulose", "Amido", "Proteína"],
     answer: "Glicose"
   },
@@ -23,8 +23,22 @@ const questions = [
     q: "Os carboidratos são formados por quais elementos?",
     options: ["C, H e O", "C, N e O", "H, O e P", "C, H e S"],
     answer: "C, H e O"
+  },
+  {
+    q: "Qual destes alimentos é rico em carboidratos?",
+    options: ["Pão", "Carne", "Queijo", "Ovo"],
+    answer: "Pão"
+  },
+  {
+    q: "Os carboidratos são armazenados no corpo na forma de:",
+    options: ["Glicogênio", "Proteína", "Lipídios", "Vitaminas"],
+    answer: "Glicogênio"
   }
 ];
+
+const soundCorrect = document.getElementById("sound-correct");
+const soundWrong = document.getElementById("sound-wrong");
+const soundWin = document.getElementById("sound-win");
 
 function createBoard() {
   const board = document.getElementById("board");
@@ -64,13 +78,18 @@ function nextQuestion() {
 
 function checkAnswer(correct) {
   document.getElementById("question-box").classList.add("hidden");
+
   if (correct) {
+    soundCorrect.play();
     positions[currentPlayer] = Math.min(positions[currentPlayer] + 1, boardSize - 1);
+  } else {
+    soundWrong.play();
   }
 
   createBoard();
 
   if (positions[currentPlayer] === boardSize - 1) {
+    soundWin.play();
     alert(`Jogador ${currentPlayer + 1} venceu!`);
     return;
   }
@@ -80,8 +99,7 @@ function checkAnswer(correct) {
 }
 
 function getPlayerColor(index) {
-  return ["Vermelho", "Azul", "Verde", "Laranja"][index];
+  return ["Vermelho", "Azul", "Verde", "Laranja", "Roxo", "Marrom"][index];
 }
 
 createBoard();
-
