@@ -2,25 +2,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Jogo dos Carboidratos - 4 Jogadores</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo de Carboidratos</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <h1>Jogo de Carboidratos</h1>
+  <div id="board"></div>
 
-  <h1>Jogo dos Carboidratos - 4 Jogadores</h1>
+  <div id="controls">
+    <p id="turn">Vez do Jogador 1 (Vermelho)</p>
+    <button onclick="nextQuestion()">Responder Pergunta</button>
+  </div>
 
-  <div class="container">
-    <div class="main">
-      <div class="question" id="question">Clique para começar o jogo!</div>
-      <button onclick="startGame()" id="nextBtn">Iniciar Jogo</button>
-      <div id="players"></div>
-    </div>
-    <div class="sidebar" id="scoreboard">
-      <h2>Pontuação</h2>
-    </div>
+  <div id="question-box" class="hidden">
+    <p id="question"></p>
+    <div id="answers"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
